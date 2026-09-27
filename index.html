@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CG MINES 2050 | Mine-Void Rehabilitation Officer Recruitment</title>
+  <meta name="description" content="Futuristic government recruitment portal for Mine-Void Rehabilitation Officer in Chhattisgarh 2050." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #040a09;
+      --bg-soft: #0a1512;
+      --card: rgba(12, 22, 18, 0.9);
+      --card-alt: rgba(18, 31, 25, 0.9);
+      --border: rgba(137, 164, 156, 0.28);
+      --primary: #00f7b5;
+      --primary-strong: #00d89d;
+      --primary-soft: rgba(0, 247, 181, 0.12);
+      --accent: #ffb15a;
+      --accent-soft: rgba(255, 177, 90, 0.12);
+      --text: #ebfff6;
+      --muted: #9db8af;
+      --danger: #ff6d7a;
+      --shadow: 0 0 25px rgba(0, 247, 181, 0.14);
+      --glow: 0 0 18px rgba(0, 247, 181, 0.28);
+      --mono: "Space Mono", monospace;
+      --sans: "Space Grotesk", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at top, rgba(0, 247, 181, 0.10), transparent 36%),
+        linear-gradient(180deg, #040a09 0%, #07100d 100%);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.018) 0px,
+        rgba(255,255,255,0.018) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      z-index: 0;
+    }
+
+    a { text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select { font: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hud-strip {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(3, 8, 7, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hud-inner {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--primary);
+      padding: 10px 16px;
+    }
+    .hud-inner::-webkit-scrollbar { display: none; }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px var(--primary);
+      margin-right: 8px;
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.7); opacity: 0.45; }
+    }
+
+    nav {
+      position: sticky;
+      top: 45px;
+      z-index: 50;
+      background: rgba(10, 19, 16, 0.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+      gap: 18px;
+    }
+
+    .brand {
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .brand span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .hero {
+      position: relative;
+      padding: 92px 0 60px;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(circle at center, rgba(0, 247, 181, 0.12), transparent 45%), linear-gradient(180deg, rgba(5, 10, 8, 0.7), rgba(5, 10, 8, 0.2));
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,247,181,0.12), transparent 62%);
+      filter: blur(40px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border: 1px solid rgba(0,247,181,0.28);
+      background: rgba(0,247,181,0.08);
+      color: var(--primary);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-top: 28px;
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 700;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--primary) 0%, #ddfff8 32%, #ffffff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #05130f;
+      font-weight: 700;
+      box-shadow: var(--glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      border-color: rgba(0,247,181,0.5);
+      color: var(--primary);
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin: 46px auto 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 1160px;
+      box-shadow: var(--shadow);
+    }
+    .stat-item {
+      background: rgba(12, 21, 18, 0.9);
+      padding: 28px 18px;
+      text-align: center;
+    }
+    .stat-item strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .stat-item span {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.7rem;
+      font-family: var(--mono);
+    }
+
+    section { padding: 96px 0; }
+
+    .section-head { margin-bottom: 34px; }
+    .section-head .kicker {
+      color: var(--primary);
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+    }
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-top: 10px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 22px;
+    }
+    .info-card {
+      background: linear-gradient(180deg, rgba(13, 22, 18, 0.95), rgba(8, 15, 12, 0.95));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .info-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+    }
+    .info-card .num {
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+    .info-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+    .info-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .policy-box {
+      background: linear-gradient(90deg, rgba(0,247,181,0.08), rgba(8,15,12,0.9));
+      border-left: 3px solid var(--primary);
+      border-radius: 0 12px 12px 0;
+      padding: 22px 28px;
+      color: var(--muted);
+      margin: 10px 0 0;
+      box-shadow: var(--shadow);
+    }
+    .policy-box strong {
+      display: block;
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .digital-twin {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .slider-wrap {
+      background: linear-gradient(180deg, rgba(9,17,14,0.96), rgba(6,11,9,0.96));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .slider-box {
+      position: relative;
+      height: 430px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      user-select: none;
+      background: #090d0c;
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.4);
+    }
+
+    .slide-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+      transition: width 0.12s ease;
+    }
+    .panel-before {
+      background: radial-gradient(circle at center, rgba(86, 42, 20, 0.7), rgba(25,14,10,0.96) 45%, rgba(10,10,9,1) 100%);
+    }
+    .panel-after {
+      width: 50%;
+      border-right: 2px solid var(--primary);
+      background: radial-gradient(circle at center, rgba(35, 93, 72, 0.72), rgba(8, 20, 14, 0.96) 45%, rgba(5, 10, 8, 1) 100%);
+      overflow: hidden;
+    }
+    .panel-content {
+      display: inline-flex;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(3px);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .panel-after .panel-content {
+      border-color: rgba(0,247,181,0.5);
+      color: var(--primary);
+      background: rgba(0,247,181,0.08);
+    }
+
+    .range-input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 5;
+    }
+
+    .twin-panel {
+      background: rgba(10, 22, 18, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .mini-stat {
+      background: rgba(8, 15, 12, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .mini-stat strong {
+      display: block;
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .table-wrap {
+      background: rgba(11, 20, 17, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+    thead th {
+      background: rgba(5, 10, 8, 0.96);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    tbody td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(115, 154, 142, 0.18);
+      color: var(--text);
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid transparent;
+    }
+    .shortlisted {
+      background: rgba(0,247,181,0.12);
+      border-color: rgba(0,247,181,0.32);
+      color: var(--primary);
+    }
+    .review {
+      background: rgba(255,177,90,0.12);
+      border-color: rgba(255,177,90,0.32);
+      color: var(--accent);
+    }
+
+    .form-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .apply-form {
+      background: linear-gradient(180deg, rgba(11, 20, 17, 0.95), rgba(7, 13, 11, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      height: 52px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(2, 7, 7, 0.9);
+      color: var(--text);
+      padding: 0 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: rgba(0,247,181,0.7);
+      box-shadow: 0 0 0 3px rgba(0,247,181,0.08);
+    }
+
+    .dossier-card {
+      display: none;
+      background: linear-gradient(180deg, rgba(4, 18, 14, 0.96), rgba(4, 12, 10, 0.98));
+      border: 1px solid rgba(0,247,181,0.55);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 0 30px rgba(0,247,181,0.12);
+      animation: fadeIn 0.35s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dossier-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(0,247,181,0.3);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .dossier-card h3 {
+      font-size: 1.7rem;
+      margin: 18px 0 20px;
+      letter-spacing: -0.04em;
+    }
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 18px;
+      margin: 18px 0 22px;
+    }
+    .dossier-box {
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(0,247,181,0.04);
+      border: 1px solid rgba(0,247,181,0.12);
+    }
+    .dossier-box span {
+      display: block;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .dossier-box strong {
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+    .dossier-status {
+      background: rgba(0,247,181,0.1);
+      border: 1px solid rgba(0,247,181,0.2);
+      color: var(--primary);
+      border-radius: 8px;
+      text-align: center;
+      padding: 12px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .timeline-item {
+      background: rgba(11, 20, 17, 0.95);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+    }
+    .timeline-item .year {
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    .timeline-item h4 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: rgba(4, 8, 7, 0.96);
+      padding: 30px 0 42px;
+      text-align: center;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 980px) {
+      .digital-twin,
+      .form-shell {
+        grid-template-columns: 1fr;
+      }
+      .stats-bar { grid-template-columns: repeat(2, minmax(180px, 1fr)); }
+      .card-grid,
+      .timeline { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .nav-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+      }
+      .nav-links { justify-content: center; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .hero { padding-top: 74px; }
+      .slider-box { height: 330px; }
+      .dossier-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hud-strip">
+    <div class="container hud-inner">
+      <div><span class="pulse-dot"></span> CG Geo-Mesh: Online [Sector-04 Korba]</div>
+      <div>Groundwater Recharge: <strong style="color:#fff;">94.2% Nominal</strong></div>
+      <div>Bio-Crust Cover: <strong style="color:#fff;">+62% Stabilized</strong></div>
+      <div>Satellite Spectrometry: <strong style="color:var(--primary);">No Toxic Leaching</strong></div>
+    </div>
+  </div>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand">CG <span>•</span> MINES 2050</a>
+      <div class="nav-links">
+        <a href="#about">The Role</a>
+        <a href="#terrain">Digital Twin</a>
+        <a href="#stats">Statistics</a>
+        <a href="#apply">Apply</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow">Government of Chhattisgarh · Rehabilitation Corps 2050</div>
+      <h1>Mine-void<br><span class="glow">Rehabilitation</span><br>Officer</h1>
+      <p>Leading the ecological and geo-structural transformation of decommissioned open-cast coal basins into autonomous solar reservoirs and bio-reserves.</p>
+
+      <div class="cta-row">
+        <a href="#apply" class="btn btn-primary">Simulate Application</a>
+        <a href="#terrain" class="btn btn-secondary">Explore Sector-04 Twin</a>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <strong data-count="142">0</strong>
+          <span>Applications Received</span>
+        </div>
+        <div class="stat-item">
+          <strong data-count="85">0</strong>
+          <span>2050 Vacancies</span>
+        </div>
+        <div class="stat-item">
+          <strong data-count="41" style="color: var(--accent);">0</strong>
+          <span>Under AI Clearance</span>
+        </div>
+        <div class="stat-item">
+          <strong data-count="14">0</strong>
+          <span>Districts Active</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container">
+      <div class="section-head">
+        <span class="kicker">Operational Directives</span>
+        <h2>Core 2050 Responsibilities</h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="info-card">
+          <span class="num">01 / Stabilize</span>
+          <h3>Autonomous Pit Dynamics</h3>
+          <p>Deploy geotechnical sensor meshes and continuous drone bathymetry to eliminate landslide and acidic wall-slumping risks.</p>
+        </article>
+
+        <article class="info-card">
+          <span class="num">02 / Bio-Regenerate</span>
+          <h3>Hydro &amp; Soil Inoculation</h3>
+          <p>Engineer wetland microbiomes and reseed overburden dumps with hyper-accumulating flora that neutralize legacy metal residues.</p>
+        </article>
+
+        <article class="info-card">
+          <span class="num">03 / Transition</span>
+          <h3>Agro-Solar Reintegration</h3>
+          <p>Convert voids exceeding 25 hectares into floating photovoltaic plants and regional community water preserves.</p>
+        </article>
+      </div>
+
+      <div class="policy-box">
+        <strong>Statutory Mandate: C.G. Geo-Stabilization Act No. 14 of 2044</strong>
+        Every decommissioned mine void across the Korba and Raigarh basins is designated critical public ecological infrastructure. The Mine-Void Rehabilitation Officer holds statutory authority to mandate soil remediation prior to industrial land handover.
+      </div>
+    </section>
+
+    <section id="terrain" class="container">
+      <div class="section-head">
+        <span class="kicker">Korba Sub-Sector 04 • Digital Twin Simulator</span>
+        <h2>Interact: Slide to Reclaim Landscape</h2>
+      </div>
+
+      <div class="digital-twin">
+        <div class="slider-wrap">
+          <div class="slider-box" id="sliderBox">
+            <div class="slide-panel panel-before">
+              <div class="panel-content">Historic Void (2030) • Degraded exhaustion pit</div>
+            </div>
+            <div class="slide-panel panel-after" id="afterPanel">
+              <div class="panel-content">Rehabilitated Site (2050) • Agro-solar eco-reservoir</div>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="range-input" id="splitRange" />
+          </div>
+        </div>
+
+        <aside class="twin-panel">
+          <div>
+            <span class="kicker">Rehab Readiness Index</span>
+            <h3 style="margin-top:8px; font-size:2rem;">86.4%</h3>
+            <p style="color:var(--muted); margin-top:10px;">
+              Ecological traction indicates stable groundwater recovery and mine wall reinforcement across the basin.
+            </p>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-stat">
+              <strong>+28%</strong>
+              <span>Topsoil Recovery</span>
+            </div>
+            <div class="mini-stat">
+              <strong>7.2M</strong>
+              <span>Liters Saved</span>
+            </div>
+            <div class="mini-stat">
+              <strong>92%</strong>
+              <span>Solar Efficiency</span>
+            </div>
+            <div class="mini-stat">
+              <strong>31K</strong>
+              <span>Vegetative Units</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="stats" class="container">
+      <div class="section-head">
+        <span class="kicker">Recruitment Registry</span>
+        <h2>Active Candidate Queue</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Application ID</th>
+              <th>Candidate Spec</th>
+              <th>Preferred Sector</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SEC-2050-8402</td>
+              <td>Environmental Remote Sensing</td>
+              <td>Korba West (Basin 01)</td>
+              <td><span class="status-badge shortlisted">Shortlisted</span></td>
+            </tr>
+            <tr>
+              <td>SEC-2050-7119</td>
+              <td>Geotechnical AI Modeling</td>
+              <td>Raigarh Central</td>
+              <td><span class="status-badge review">Under Review</span></td>
+            </tr>
+            <tr>
+              <td>SEC-2050-5931</td>
+              <td>Hydro-Ecological Restoration</td>
+              <td>Hasdeo Overburden Range</td>
+              <td><span class="status-badge shortlisted">Shortlisted</span></td>
+            </tr>
+            <tr>
+              <td>SEC-2050-4586</td>
+              <td>Waste Water Bioremediation</td>
+              <td>Korba South Pit Series</td>
+              <td><span class="status-badge shortlisted">Shortlisted</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head">
+        <span class="kicker">Reclamation Timeline</span>
+        <h2>From Exhaustion to Ecological Recovery</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="year">2032</span>
+          <h4>Baseline Closure</h4>
+          <p>Mine pits are sealed and hydrological risk mapping begins to preserve downstream communities.</p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="year">2038</span>
+          <h4>Drainage Repair</h4>
+          <p>Subsurface channels are restored and acidic runoffs are neutralized with bio-amendment sequencing.</p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="year">2046</span>
+          <h4>Ecological Restoration</h4>
+          <p>Native tree corridors and wetland mesh systems re-establish biodiversity and groundwater retention.</p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="year">2050</span>
+          <h4>Agro-Solar Conversion</h4>
+          <p>Void lands are transformed into resilient energy-water commons with public ecological infrastructure.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="apply" class="container">
+      <div class="section-head" style="text-align:center;">
+        <span class="kicker">Academic Assignment Simulator</span>
+        <h2>Submit 2050 Candidate Profile</h2>
+      </div>
+
+      <div class="form-shell">
+        <form id="recruitmentForm" class="apply-form">
+          <div class="form-group">
+            <label for="applicantName">Candidate Full Name</label>
+            <input type="text" id="applicantName" placeholder="e.g. Kushal Roy" required />
+          </div>
+
+          <div class="form-group">
+            <label for="applicantDegree">Primary Academic Qualification</label>
+            <select id="applicantDegree" required>
+              <option value="Environmental Robotics & Remote Sensing">M.Tech Environmental Robotics & Sensing</option>
+              <option value="Geotechnical Engineering & AI Twins">B.Tech Geotechnical Engineering (Digital Twins)</option>
+              <option value="Hydrogeological Remediation">M.Sc Earth Sciences & Ecological Hydrology</option>
+              <option value="Autonomous Mine Systems">B.Tech Mining Engineering (Decommissioning)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="applicantZone">Primary Focus Sector</label>
+            <select id="applicantZone">
+              <option value="Korba Sector-04 Deep Pit">Korba Sector-04 Deep Pit</option>
+              <option value="Raigarh North Overburden">Raigarh North Overburden</option>
+              <option value="Chirimiri Inactive Strips">Chirimiri Inactive Strips</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">Process 2050 Candidate Dossier</button>
+        </form>
+
+        <aside id="clearanceCard" class="dossier-card">
+          <div class="dossier-head">
+            <span>Govt of Chhattisgarh • Rehab Corps</span>
+            <span id="badgeSerial">SEC-2050-XXXX</span>
+          </div>
+
+          <h3 id="cardName">Candidate Name</h3>
+
+          <div class="dossier-grid">
+            <div class="dossier-box">
+              <span>Competency Domain</span>
+              <strong id="cardDegree">—</strong>
+            </div>
+            <div class="dossier-box">
+              <span>Field Dispatch Target</span>
+              <strong id="cardZone">—</strong>
+            </div>
+            <div class="dossier-box">
+              <span>Clearance Verification</span>
+              <strong style="color:var(--primary);">Level-1 Telemetry Access</strong>
+            </div>
+            <div class="dossier-box">
+              <span>Risk Probability</span>
+              <strong style="color:var(--accent);">Low • Bio-Integrated</strong>
+            </div>
+          </div>
+
+          <div class="dossier-status">✓ Provisional Compliance Approved</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    CG MINES 2050 • MINE-VOID REHABILITATION OFFICER RECRUITMENT PORTAL
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = Number(el.dataset.count);
+          let current = 0;
+          const increment = Math.max(1, Math.ceil(target / 90));
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              el.textContent = target;
+              clearInterval(timer);
+            } else {
+              el.textContent = current;
+            }
+          }, 18);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach((el) => observer.observe(el));
+
+    const range = document.getElementById('splitRange');
+    const afterPanel = document.getElementById('afterPanel');
+
+    function updateSlider() {
+      const value = range.value;
+      afterPanel.style.width = value + '%';
+    }
+    range.addEventListener('input', updateSlider);
+    updateSlider();
+
+    const form = document.getElementById('recruitmentForm');
+    const card = document.getElementById('clearanceCard');
+    const nameField = document.getElementById('applicantName');
+    const degreeField = document.getElementById('applicantDegree');
+    const zoneField = document.getElementById('applicantZone');
+    const cardName = document.getElementById('cardName');
+    const cardDegree = document.getElementById('cardDegree');
+    const cardZone = document.getElementById('cardZone');
+    const badgeSerial = document.getElementById('badgeSerial');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = nameField.value.trim();
+      if (!name) {
+        nameField.focus();
+        return;
+      }
+
+      const serial = 'SEC-2050-' + Math.floor(1000 + Math.random() * 9000);
+      badgeSerial.textContent = serial;
+      cardName.textContent = name.toUpperCase();
+      cardDegree.textContent = degreeField.value;
+      cardZone.textContent = zoneField.value;
+
+      card.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</body>
+</html>
